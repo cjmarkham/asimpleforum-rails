@@ -1,0 +1,42 @@
+!!!
+
+%head
+  %title Asimpleforum
+  = csrf_meta_tags
+
+  = stylesheet_link_tag 'application', media: 'all'
+  = javascript_include_tag 'application'
+
+%body
+  %nav.navbar.navbar-default
+    .container-fluid
+      .navbar-header
+        %button.navbar-toggle.collapsed{type: 'button', data: { toggle: 'collapse', target: '#navbar-collapse' }, aria: { expanded: 'false' } }
+          %span.sr-only Toggle navigation
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        = link_to 'asimpleforum', '', class: 'navbar-brand'
+      .collapse.navbar-collapse#navbar-collapse
+        %ul.nav.navbar-nav
+          %li.active
+            = link_to root_path do
+              %span Home
+              %span.sr-only (current)
+        %ul.nav.navbar-nav.navbar-right
+          - if user_signed_in?
+            %li
+              = link_to current_user.username, ''
+            %li
+              = link_to 'Logout', destroy_user_session_path, method: :delete
+          - else
+            %li
+              = link_to 'Sign up', new_user_registration_path
+            %li
+              = link_to 'Log in', new_user_session_path
+
+
+  .container
+    - if ! content_for? :flash
+      = render partial: 'partials/flash_messages'
+    = yield
