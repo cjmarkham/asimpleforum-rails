@@ -1,3 +1,17 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 @import 'variables';
+
+@import 'editor';
+@import 'post';
+
+.alert {
+  &.alert-error,
+  &.alert-alert {
+    @extend .alert-danger;
+  }
+
+  &.alert-notice {
+    @extend .alert-info;
+  }
+}
