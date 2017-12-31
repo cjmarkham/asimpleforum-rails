@@ -1,9 +1,12 @@
 class Topic < ApplicationRecord
   belongs_to :author, class_name: :User
   has_one :taggable
+  has_one :tag, through: :taggable
   has_many :posts
 
   before_create :generate_slug
+
+  scope :in_category, -> (slug) { joins(:tag).where('tags.slug=?', slug) }
 
   private
 
