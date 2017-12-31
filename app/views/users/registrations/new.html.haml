@@ -1,0 +1,21 @@
+.row
+  .col-md-6.col-md-offset-3
+    - content_for :flash do
+      = render partial: 'partials/flash_messages'
+    = yield :flash
+
+    = form_for resource, as: resource_name, url: registration_path(resource_name) do |f|
+      .form-group
+        = f.label :username, I18n.t('forms.labels.username')
+        = f.text_field :username, class: 'form-control', placeholder: I18n.t('forms.placeholders.username')
+
+      .form-group
+        = f.label :email, I18n.t('forms.labels.email')
+        = f.email_field :email, class: 'form-control', placeholder: I18n.t('forms.placeholders.email')
+
+      .form-group
+        = f.label :password, I18n.t('forms.labels.password')
+        = f.password_field :password, class: 'form-control', placeholder: I18n.t('forms.placeholders.password')
+
+      .form-group
+        = f.submit I18n.t('forms.buttons.register'), class: 'btn btn-primary'
