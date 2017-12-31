@@ -5,5 +5,6 @@ class CategoriesController < ApplicationController
 
   def show
     @topics = Topic.in_category(params[:id]).order(updated_at: :desc)
+    render :index
   end
 end
