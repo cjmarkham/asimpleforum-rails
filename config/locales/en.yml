@@ -1,0 +1,17 @@
+en:
+  flash:
+    users:
+      registered: Account has been created
+  forms:
+    labels:
+      username: Username
+      email: Email
+      password: Password
+      remember_me: Remember me
+    placeholders:
+      username: Username
+      email: Email
+      password: Password
+    buttons:
+      register: Sign up
+      login: Log in
