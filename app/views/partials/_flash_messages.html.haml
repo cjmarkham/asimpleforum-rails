@@ -1,0 +1,12 @@
+.text-center
+  - [:error, :success, :notice, :alert].each do |t|
+    - if flash[t]
+      .alert.alert-dismissable{class: "alert-#{t}", role: 'alert'}
+        %button.close{type: 'button', data: { dismiss: 'alert' }, aria: { label: 'Close' } }
+          %span{aria: { hidden: 'true' } }
+            &times;
+        - if flash[t].is_a? Array
+          - flash[t].each do |f|
+            %p= f.html_safe
+        - else
+          %p= flash[t].html_safe
