@@ -7,3 +7,5 @@
       %ul.list-unstyled.post-list
         = render partial: 'posts_list'
 
+.text-center
+  = render partial: 'partials/editor', locals: { topic_id: @topic.id }

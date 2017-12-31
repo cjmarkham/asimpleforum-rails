@@ -1,0 +1,17 @@
+.editor-triggers {
+  list-style: none;
+
+  li {
+    display: inline-block;
+
+    a {
+
+    }
+  }
+}
+
+.editor {
+  input[type="file"] {
+    display: none;
+  }
+}

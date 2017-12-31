@@ -1,0 +1,19 @@
+.editor
+  %ul.editor-triggers
+    %li
+      %a{href: '#', data: { trigger: 'bold' } } Bold
+    %li
+      %a{href: '#', data: { trigger: 'italic' } } Italic
+    %li
+      %a{href: '#', data: { trigger: 'underline' } } Underline
+    %li
+      %a{href: '#', data: { trigger: 'image' } } Image
+  = form_with model: Post.new do |f|
+    %input{type: 'file', name: 'image-upload'}
+    %input{type: 'hidden', name: 'post[image-ids]'}
+    %input{type: 'hidden', name: 'post[topic_id]', value: topic_id}
+    %textarea{rows: 6, cols: 80, name: 'post[content]'}
+    .form-group
+      = f.submit 'Reply', class: 'btn btn-primary'
+  .preview
+

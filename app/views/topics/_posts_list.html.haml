@@ -1,0 +1,13 @@
+- @topic.posts.each do |post|
+  %li
+    .row
+      .col-md-1
+      .col-md-6
+        %p= post.author.username
+      .col-md-5.text-right
+        %date
+          = post.created_at.strftime(Configuration.setting(:long_date_format))
+    .row
+      .col-md-6.col-md-offset-1
+        .post-content= sanitize post.content
+
