@@ -1,0 +1,20 @@
+- @topics.each do |topic|
+  %ul.list-unstyled
+    %li
+      .panel.panel-default
+        .panel-body
+          .row
+            .col-md-5
+              %h5
+                = link_to topic.name, topic_path(topic.slug)
+              %p= topic.author.username
+            .col-md-2.text-center
+              %label.label.label-success= topic.taggable.tag.name
+            .col-md-1
+              = topic.replies
+            .col-md-1
+              = topic.views
+            .col-md-3.text-right
+              %date
+                = topic.created_at.strftime(Configuration.setting(:short_date_format))
+
