@@ -57,4 +57,8 @@ Rails.application.configure do
     port: 3001,
   }
 
+  config.after_initialize do
+    Bullet.enable = true
+    Bullet.console = true
+  end
 end
