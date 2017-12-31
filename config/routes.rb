@@ -18,4 +18,6 @@ Rails.application.routes.draw do
   resources :topics, only: [:show]
   resources :posts,  only: [:create]
   resources :images, only: [:create]
+
+  resources :categories, only: [:index, :show]
 end
