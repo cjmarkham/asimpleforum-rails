@@ -1,0 +1,9 @@
+.container{id: "topic-#{@topic.id}"}
+  %h4= @topic.name
+  %label.label.label-success= @topic.taggable.tag.name
+
+  .panel.panel-default
+    .panel-body
+      %ul.list-unstyled.post-list
+        = render partial: 'posts_list'
+
