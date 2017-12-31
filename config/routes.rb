@@ -15,7 +15,7 @@ Rails.application.routes.draw do
       confirmations: 'users/confirmations',
     }
 
-  resources :topics, only: [:show]
+  resources :topics, only: [:show, :new, :create]
   resources :posts,  only: [:create]
   resources :images, only: [:create]
 
